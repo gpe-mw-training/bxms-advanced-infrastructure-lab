@@ -1,0 +1,43 @@
+{
+  "lookup": "ksession.stateless",
+  "commands": [
+    {
+      "insert": {
+        "object": {
+          "com.redhat.gpte.policyquote.model.Driver": {
+            "id": "1",
+            "driverName": "John Doe",
+            "age": 26,
+            "ssn": "789456",
+            "dlNumber": "123456",
+            "numberOfAccidents": 2,
+            "numberOfTickets": 1,
+            "creditScore": 0
+          }
+        },
+        "out-identifier": "driver",
+        "return-object": true
+      }
+    },
+    {
+      "insert": {
+        "object": {
+          "com.redhat.gpte.policyquote.model.Policy": {
+            "policyType": "AUTO",
+            "vehicleYear": 1999,
+            "price": 0,
+            "priceDiscount": 0,
+            "driver": "1"
+          }
+        },
+        "out-identifier": "policy",
+        "return-object": true
+      }
+    },
+    {
+      "start-process": {
+        "processId": "com.redhat.gpte.policyquote.ruleflow"
+      }
+    }
+  ]
+}
