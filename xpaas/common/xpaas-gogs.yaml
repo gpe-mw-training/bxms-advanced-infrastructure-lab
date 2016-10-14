@@ -1,16 +1,15 @@
 apiVersion: v1
 kind: Template
 metadata:
-  name: decisionserver-gogs
+  name: xpaas-gogs
 labels:
-  template: decisionserver-gogs
-  group: decisionserver
+  template: xpaas-gogs
+  group: xpaas
 metadata:
   annotations:
-    description: Creates a Gogs Git server for the decisionserver labs
-    iconClass: icon-jenkins
-    tags: instant-app,gogs,decisionserver
-  name: decisionserver-gogs
+    description: Creates a Gogs Git server for the xpaas labs
+    tags: instant-app,gogs,xpaas
+  name: xpaas-gogs
 parameters:
 - description: The name for the application.
   name: APPLICATION_NAME

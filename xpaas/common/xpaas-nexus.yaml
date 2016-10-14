@@ -1,34 +1,19 @@
 apiVersion: v1
 kind: Template
 metadata:
-  name: decisionserver-nexus-persistent
+  name: xpaas-nexus
 labels:
-  template: decisionserver-nexus-persistent
-  group: decisionserver
+  template: xpaas-nexus
+  group: xpaas
 metadata:
   annotations:
     description: Creates a persistent Nexus Repository
-    tags: instant-app,nexus,decisionserver
-  name: decisionserver-nexus-persistent
+    tags: instant-app,nexus,xpaas
+  name: xpaas-nexus
 parameters:
 - description: Nexus Repository service name
   name: NEXUS_SERVICE_NAME
   value: nexus
-- description: Volume space available for data, e.g. 512Mi, 2Gi
-  name: VOLUME_CAPACITY
-  required: true
-  value: 512Mi
-objects:
-- apiVersion: v1
-  kind: PersistentVolumeClaim
-  metadata:
-    name: ${APPLICATION_NAME}-pvc
-  spec:
-    accessModes:
-    - ReadWriteOnce
-    resources:
-      requests:
-        storage: ${VOLUME_CAPACITY}
 - apiVersion: v1
   kind: Service
   metadata:
@@ -64,8 +49,8 @@ objects:
   kind: ImageStream
   metadata:
     labels:
-      app: nexus
-    name: nexus
+      app: ${APPLICATION_NAME}
+    name: ${APPLICATION_NAME}
   spec:
     tags:
     - annotations:

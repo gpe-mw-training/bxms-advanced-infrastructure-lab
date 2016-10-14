@@ -1,16 +1,13 @@
 apiVersion: v1
 kind: Template
-metadata:
-  name: decisionserver-gogs
 labels:
-  template: decisionserver-gogs
-  group: decisionserver
+  template: xpaas-gogs-peristent
+  group: xpaas
 metadata:
   annotations:
-    description: Creates a Gogs Git server for the decisionserver labs
-    iconClass: icon-jenkins
-    tags: instant-app,gogs,decisionserver
-  name: decisionserver-gogs
+    description: Creates a Gogs Git server for the xpaas labs
+    tags: instant-app,gogs,xpaas
+  name: xpaas-gogs-persistent
 parameters:
 - description: The name for the application.
   name: APPLICATION_NAME
@@ -168,13 +165,13 @@ objects:
             timeoutSeconds: 1
           volumeMounts:
           - mountPath: /home/gogs/gogs-repositories
-            name: gogs-data
+            name: ${APPLICATION_NAME}-data
         dnsPolicy: ClusterFirst
         restartPolicy: Always
         securityContext: {}
         terminationGracePeriodSeconds: 30
         volumes:
-        - name: gogs-data
+        - name: ${APPLICATION_NAME}-data
           persistentVolumeClaim:
             claimName: ${APPLICATION_NAME}-pvc
     triggers:
@@ -185,7 +182,7 @@ objects:
         - ${APPLICATION_NAME}
         from:
           kind: ImageStreamTag
-          name: gogs:latest
+          name: ${APPLICATION_NAME}:latest
       type: ImageChange
   status: {}
 - apiVersion: v1
