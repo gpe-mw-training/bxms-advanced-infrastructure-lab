@@ -129,6 +129,7 @@ objects:
       slave-label: jdk8
     labels:
       role: jenkins-slave
+      app: ${APPLICATION_NAME}
     name: jdk-jenkins-slave
   spec: {}
 - apiVersion: v1

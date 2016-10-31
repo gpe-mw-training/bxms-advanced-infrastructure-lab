@@ -1,0 +1,22 @@
+{
+  "driver": {
+    "com.redhat.gpte.xpaas.process_server.policyquote.datamodel.Driver": {
+      "id": "1234",
+      "driverName": "John Doe",
+      "age": 23,
+      "ssn": "987654321",
+      "dlNumber": "123456789",
+      "numberOfAccidents": 1,
+      "numberOfTickets": 2,
+      "creditScore": null
+    }
+  },
+  "policy": {
+    "com.redhat.gpte.xpaas.process_server.policyquote.datamodel.Policy": {
+      "requestDate": 1477678438472,
+      "policyType": "AUTO",
+      "vehicleYear": 2000,
+      "driver": "1234"
+    }
+  }
+}
