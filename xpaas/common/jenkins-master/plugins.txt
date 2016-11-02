@@ -25,12 +25,15 @@ branch-api:1.11
 workflow-multibranch:2.9
 durable-task:1.12
 workflow-durable-task-step:2.5
+kubernetes:0.8
 pipeline-input-step:2.1
 pipeline-stage-step:2.2
 workflow-basic-steps:2.2
 pipeline-stage-view:2.1
 matrix-project:1.7.1
 git:3.0.0
+openshift-sync:0.0.14
+openshift-pipeline:1.0.28
 gogs-webhook:1.0.6
 pipeline-graph-analysis:1.1
 pipeline-milestone-step:1.1
