@@ -122,6 +122,7 @@ objects:
               - /bin/bash
               - -c
               - /opt/eap/bin/livenessProbe.sh
+            periodSeconds: 30
           name: ${APPLICATION_NAME}
           ports:
           - containerPort: 8778
@@ -136,6 +137,7 @@ objects:
               - /bin/bash
               - -c
               - /opt/eap/bin/readinessProbe.sh
+            periodSeconds: 30
         terminationGracePeriodSeconds: 60
     triggers:
     - imageChangeParams:

@@ -172,12 +172,14 @@ objects:
               - /bin/bash
               - -c
               - /opt/eap/bin/livenessProbe.sh
+            periodSeconds: 30
           readinessProbe:
             exec:
               command:
               - /bin/bash
               - -c
               - /opt/eap/bin/readinessProbe.sh
+            periodSeconds: 30
         terminationGracePeriodSeconds: 60
     triggers:
     - type: ImageChange
