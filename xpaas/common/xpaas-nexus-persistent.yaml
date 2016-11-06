@@ -21,6 +21,8 @@ objects:
   kind: PersistentVolumeClaim
   metadata:
     name: ${APPLICATION_NAME}-pvc
+    labels:
+      app: ${APPLICATION_NAME}
   spec:
     accessModes:
     - ReadWriteOnce
